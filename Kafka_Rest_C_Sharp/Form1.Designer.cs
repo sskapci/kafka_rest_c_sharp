@@ -28,35 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btn_send = new System.Windows.Forms.Button();
+            this.txt_server = new System.Windows.Forms.TextBox();
+            this.txt_message = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // btn_send
             // 
-            this.button1.Location = new System.Drawing.Point(254, 82);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Send";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_send.Location = new System.Drawing.Point(254, 82);
+            this.btn_send.Name = "btn_send";
+            this.btn_send.Size = new System.Drawing.Size(75, 23);
+            this.btn_send.TabIndex = 0;
+            this.btn_send.Text = "Send";
+            this.btn_send.UseVisualStyleBackColor = true;
+            this.btn_send.Click += new System.EventHandler(this.btn_send_Click);
             // 
-            // textBox1
+            // txt_server
             // 
-            this.textBox1.Location = new System.Drawing.Point(136, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(193, 20);
-            this.textBox1.TabIndex = 1;
+            this.txt_server.Location = new System.Drawing.Point(136, 28);
+            this.txt_server.Name = "txt_server";
+            this.txt_server.Size = new System.Drawing.Size(193, 20);
+            this.txt_server.TabIndex = 1;
+            this.txt_server.Text = "http://localhost:8082/topics/test";
             // 
-            // textBox2
+            // txt_message
             // 
-            this.textBox2.Location = new System.Drawing.Point(136, 56);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(193, 20);
-            this.textBox2.TabIndex = 2;
+            this.txt_message.Location = new System.Drawing.Point(136, 56);
+            this.txt_message.Name = "txt_message";
+            this.txt_message.Size = new System.Drawing.Size(193, 20);
+            this.txt_message.TabIndex = 2;
             // 
             // label1
             // 
@@ -83,9 +85,9 @@
             this.ClientSize = new System.Drawing.Size(348, 121);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txt_message);
+            this.Controls.Add(this.txt_server);
+            this.Controls.Add(this.btn_send);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -95,9 +97,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btn_send;
+        private System.Windows.Forms.TextBox txt_server;
+        private System.Windows.Forms.TextBox txt_message;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }
