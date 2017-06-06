@@ -33,6 +33,10 @@
             this.txt_message = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btn_auto = new System.Windows.Forms.Button();
+            this.btn_get = new System.Windows.Forms.Button();
+            this.txt_info = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_send
@@ -78,11 +82,53 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Message";
             // 
+            // btn_auto
+            // 
+            this.btn_auto.Location = new System.Drawing.Point(254, 111);
+            this.btn_auto.Name = "btn_auto";
+            this.btn_auto.Size = new System.Drawing.Size(75, 23);
+            this.btn_auto.TabIndex = 5;
+            this.btn_auto.Text = "Auto Send";
+            this.btn_auto.UseVisualStyleBackColor = true;
+            this.btn_auto.Click += new System.EventHandler(this.btn_auto_Click);
+            // 
+            // btn_get
+            // 
+            this.btn_get.Location = new System.Drawing.Point(173, 82);
+            this.btn_get.Name = "btn_get";
+            this.btn_get.Size = new System.Drawing.Size(75, 23);
+            this.btn_get.TabIndex = 6;
+            this.btn_get.Text = "Get Info";
+            this.btn_get.UseVisualStyleBackColor = true;
+            this.btn_get.Click += new System.EventHandler(this.btn_get_Click);
+            // 
+            // txt_info
+            // 
+            this.txt_info.Location = new System.Drawing.Point(12, 150);
+            this.txt_info.Multiline = true;
+            this.txt_info.Name = "txt_info";
+            this.txt_info.ReadOnly = true;
+            this.txt_info.Size = new System.Drawing.Size(317, 170);
+            this.txt_info.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 121);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Get Info";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 121);
+            this.ClientSize = new System.Drawing.Size(348, 332);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txt_info);
+            this.Controls.Add(this.btn_get);
+            this.Controls.Add(this.btn_auto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_message);
@@ -102,6 +148,10 @@
         private System.Windows.Forms.TextBox txt_message;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_auto;
+        private System.Windows.Forms.Button btn_get;
+        private System.Windows.Forms.TextBox txt_info;
+        private System.Windows.Forms.Label label3;
     }
 }
 

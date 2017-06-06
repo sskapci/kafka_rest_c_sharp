@@ -14,6 +14,9 @@ namespace Kafka_Rest_C_Sharp
 {
     public partial class Form1 : Form
     {
+
+        private static Random random = new Random();
+
         public Form1()
         {
             InitializeComponent();
@@ -78,6 +81,27 @@ namespace Kafka_Rest_C_Sharp
                 }
                 throw;
             }
+        }
+
+        private void btn_auto_Click(object sender, EventArgs e)
+        {
+            for(int i=0;i<1000; i++)
+            {
+                string content = "{\"records\":[{\"value\":{\"message\":\"" + RandomString(6) + "\"}}]}";
+                POST(txt_server.Text, content);
+            }
+        }
+
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        private void btn_get_Click(object sender, EventArgs e)
+        {
+            txt_info.Text = GET(txt_server.Text);
         }
     }
 }
