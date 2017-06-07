@@ -134,8 +134,13 @@
             this.Controls.Add(this.txt_message);
             this.Controls.Add(this.txt_server);
             this.Controls.Add(this.btn_send);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(364, 371);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(364, 371);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Kafka Rest Client";
             this.ResumeLayout(false);
             this.PerformLayout();
 

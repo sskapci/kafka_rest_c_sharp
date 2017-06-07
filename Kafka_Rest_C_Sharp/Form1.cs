@@ -30,25 +30,27 @@ namespace Kafka_Rest_C_Sharp
 
         void POST(string url, string jsonContent)
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.Method = "POST";
 
-            System.Text.UTF8Encoding encoding = new System.Text.UTF8Encoding();
-            Byte[] byteArray = encoding.GetBytes(jsonContent);
-
-            request.ContentLength = byteArray.Length;
-            request.ContentType = @"application/vnd.kafka.json.v2+json";
-
-            using (Stream dataStream = request.GetRequestStream())
-            {
-                dataStream.Write(byteArray, 0, byteArray.Length);
-            }
-            long length = 0;
             try
             {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                request.Method = "POST";
+
+                System.Text.UTF8Encoding encoding = new System.Text.UTF8Encoding();
+                Byte[] byteArray = encoding.GetBytes(jsonContent);
+
+                request.ContentLength = byteArray.Length;
+                request.ContentType = @"application/vnd.kafka.json.v2+json";
+
+                using (Stream dataStream = request.GetRequestStream())
+                {
+                    dataStream.Write(byteArray, 0, byteArray.Length);
+                }
+                long length = 0;
                 using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 {
                     length = response.ContentLength;
+                    txt_info.Text = response.StatusCode.ToString();
                 }
             }
             catch (WebException ex)
@@ -60,9 +62,9 @@ namespace Kafka_Rest_C_Sharp
         // Returns JSON string
         string GET(string url)
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             try
             {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 WebResponse response = request.GetResponse();
                 using (Stream responseStream = response.GetResponseStream())
                 {
@@ -83,9 +85,10 @@ namespace Kafka_Rest_C_Sharp
             }
         }
 
+        //TODO generate background process
         private void btn_auto_Click(object sender, EventArgs e)
         {
-            for(int i=0;i<1000; i++)
+            for (int i = 0; i < 1000; i++)
             {
                 string content = "{\"records\":[{\"value\":{\"message\":\"" + RandomString(6) + "\"}}]}";
                 POST(txt_server.Text, content);
